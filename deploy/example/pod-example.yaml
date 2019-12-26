@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox
+spec:
+  containers:
+  #- image: docker.io/arm64v8/bash:latest
+  - image: docker.io/library/busybox:latest
+    command:
+      - /bin/sleep
+    args:
+      - 300s
+    imagePullPolicy: Always
+    name: busybox
+    resources:
+      requests:
+        memory: 50Mi
+        cpu: 100m
+    ports:
+    - containerPort: 80
+      name: http
+      protocol: TCP
+    - containerPort: 443
+      name: https
+    volumeMounts:
+    - mountPath: /tmp
+      name: temp
+    securityContext:
+      privileged: true
+  dnsPolicy: ClusterFirst
+  nodeSelector:
+    kubernetes.io/role: agent
+    beta.kubernetes.io/os: linux
+    type: virtual-kubelet
+    kubernetes.io/hostname: podman
+  tolerations:
+  - key: virtual-kubelet.io/provider
+    operator: Exists
+  volumes:
+  - hostPath:
+      path: /tmp/test
+      type: DirectoryOrCreate
+    name: temp
