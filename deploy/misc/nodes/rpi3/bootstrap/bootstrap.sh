@@ -24,6 +24,7 @@ if [[ ! -f "$FILE" ]]; then
 
     # configure users
     useradd rpi
+    passwd -d rpi
     # auto-login
     sed -i "s/# autologin=dgod/autologin=rpi/g" /etc/lxdm/lxdm.conf
 
