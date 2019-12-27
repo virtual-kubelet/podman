@@ -3,49 +3,33 @@ module github.com/virtual-kubelet/podman
 go 1.12
 
 require (
-	9fans.net/go v0.0.2 // indirect
-	contrib.go.opencensus.io/exporter/jaeger v0.1.0
-	contrib.go.opencensus.io/exporter/ocagent v0.4.12
-	github.com/BurntSushi/xgb v0.0.0-20160522181843-27f122750802
-	github.com/acroca/go-symbols v0.1.1 // indirect
-	github.com/buger/goterm v0.0.0-20181115115552-c206103e1f37
-	github.com/chbmuc/cec v0.0.0-20170405204755-573ad0b0369b // indirect
-	github.com/davecgh/go-spew v1.1.1
-	github.com/davidrjenni/reftools v0.0.0-20190827201643-0605d60846fb // indirect
 	github.com/docker/spdystream v0.0.0-20181023171402-6480d4af844c // indirect
 	github.com/evanphx/json-patch v4.5.0+incompatible // indirect
-	github.com/fatih/gomodifytags v1.0.1 // indirect
-	github.com/fatih/structtag v1.1.0 // indirect
 	github.com/ghodss/yaml v1.0.0
 	github.com/golang/groupcache v0.0.0-20190129154638-5b532d6fd5ef // indirect
+	github.com/golang/protobuf v1.3.2 // indirect
 	github.com/googleapis/gnostic v0.3.0 // indirect
 	github.com/gorilla/mux v1.7.2 // indirect
-	github.com/grpc-ecosystem/grpc-gateway v1.9.2 // indirect
-	github.com/haya14busa/goplay v1.0.0 // indirect
-	github.com/josharian/impl v0.0.0-20190715203526-f0d59e96e372 // indirect
-	github.com/mdempsky/gocode v0.0.0-20190203001940-7fb65232883f // indirect
+	github.com/imdario/mergo v0.3.8 // indirect
+	github.com/json-iterator/go v1.1.7 // indirect
 	github.com/mitchellh/go-homedir v1.1.0
-	github.com/mjudeikis/go-podman v0.0.0-20191113175730-90d538e53252
-	github.com/openshift/openshift-azure v10.1.1+incompatible
+	github.com/onsi/ginkgo v1.10.1 // indirect
+	github.com/onsi/gomega v1.7.0 // indirect
 	github.com/pkg/errors v0.8.1
-	github.com/ramya-rao-a/go-outline v0.0.0-20181122025142-7182a932836a // indirect
-	github.com/rogpeppe/godef v1.1.1 // indirect
 	github.com/sirupsen/logrus v1.4.2
-	github.com/skratchdot/open-golang v0.0.0-20190402232053-79abb63cd66e // indirect
 	github.com/spf13/cobra v0.0.5
 	github.com/spf13/pflag v1.0.3
-	github.com/sqs/goreturns v0.0.0-20181028201513-538ac6014518 // indirect
-	github.com/uudashr/gopkgs v2.0.1+incompatible // indirect
 	github.com/varlink/go v0.0.0-20191018142704-4ecdbb8a36c2
-	github.com/virtual-kubelet/virtual-kubelet v1.1.0
-	github.com/zmb3/gogetdoc v0.0.0-20190228002656-b37376c5da6a // indirect
-	go.opencensus.io v0.22.0
+	github.com/virtual-kubelet/virtual-kubelet v1.2.0
+	go.opencensus.io v0.22.0 // indirect
 	go.uber.org/zap v1.12.0
-	google.golang.org/api v0.6.0 // indirect
+	golang.org/x/crypto v0.0.0-20191029031824-8986dd9e96cf // indirect
+	golang.org/x/net v0.0.0-20191101175033-0deb6923b6d9 // indirect
+	golang.org/x/oauth2 v0.0.0-20190604053449-0f29369cfe45 // indirect
+	golang.org/x/sys v0.0.0-20191029155521-f43be2a4598c // indirect
+	golang.org/x/tools v0.0.0-20191101200257-8dbcdeb83d3f // indirect
 	google.golang.org/appengine v1.6.1 // indirect
-	google.golang.org/genproto v0.0.0-20190620144150-6af8c5fc6601 // indirect
-	google.golang.org/grpc v1.21.1 // indirect
-	gotest.tools v2.2.0+incompatible
+	gopkg.in/check.v1 v1.0.0-20190902080502-41f04d3bba15 // indirect
 	k8s.io/api v0.0.0
 	k8s.io/apimachinery v0.0.0
 	k8s.io/client-go v11.0.0+incompatible
@@ -53,7 +37,6 @@ require (
 	k8s.io/kube-openapi v0.0.0-20190603182131-db7b694dc208 // indirect
 	k8s.io/kubernetes v1.15.2
 	k8s.io/utils v0.0.0-20190607212802-c55fbcfc754a // indirect
-	sourcegraph.com/sqs/goreturns v0.0.0-20181028201513-538ac6014518 // indirect
 )
 
 replace k8s.io/legacy-cloud-providers => k8s.io/legacy-cloud-providers v0.0.0-20190805144654-3d5bf3a310c1

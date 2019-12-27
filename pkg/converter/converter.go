@@ -7,7 +7,6 @@ import (
 	"strings"
 	"time"
 
-	"github.com/davecgh/go-spew/spew"
 	"github.com/ghodss/yaml"
 	v1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -76,7 +75,6 @@ func KubeSpecToPodmanContainer(pod v1.Pod, container v1.Container, podName strin
 		vars = append(vars, fmt.Sprintf("%s=%s", e.Name, e.Value))
 	}
 	podmanPod.Env = &vars
-	spew.Dump(podmanPod.Env)
 
 	return podmanPod
 }
