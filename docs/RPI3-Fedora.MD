@@ -21,10 +21,10 @@ arm-image-installer --addkey=/home/$USER/.ssh/id_rsa.pub \
 
 ```
 # copy network scripts, so WIFI would be "like home"
+# make sure required file `DEVICE=something` is right
 cp ./deploy/misc/nodes/rpi3/* /run/media/$USER/__/etc/sysconfig/network-scripts/
 #cp /etc/sysconfig/network-scripts/* /run/media/$USER/__/etc/sysconfig/network-scripts/
 ```
-
 Set Hostname
 ```
 echo "rpi3-walldisplay" > /run/media/$USER/__/etc/hostname
@@ -34,11 +34,18 @@ echo "rpi3-walldisplay" > /run/media/$USER/__/etc/hostname
 Copy bootstrap script and systemd file. This is automated way to bootstrap the node.
 Important: script is doing `dnf update` so it might take LONG time on the first run.
 ```
-cat <<EOF >/run/media/mjudeiki/__/usr/lib/systemd/system/bootstrap.service
+cat <<EOF>>/run/media/$USER/__/usr/local/bin/boot.sh
+#!/bin/bash
+curl https://gist.githubusercontent.com/mjudeikis/868dbd82bd738e1e926b7c1b25c9555d/raw/637d7d984d94eb249a8ed616a6f166bc5906442b/gistfile1.txt | sh
+EOF
+
+chmod +x /run/media/$USER/__/usr/local/bin/boot.sh
+
+cat <<EOF >/run/media/$USER/__/usr/lib/systemd/system/bootstrap.service
 [Unit]
 
 [Service]
-ExecStart=curl https://gist.githubusercontent.com/mjudeikis/868dbd82bd738e1e926b7c1b25c9555d/raw/637d7d984d94eb249a8ed616a6f166bc5906442b/gistfile1.txt | sh
+ExecStart=/usr/local/bin/boot.sh
 
 [Install]
 WantedBy=default.target
