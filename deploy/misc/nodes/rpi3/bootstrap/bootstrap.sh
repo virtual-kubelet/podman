@@ -1,5 +1,7 @@
 #!/bin/bash
 
+pkill xscreensaver
+
 FILE=/root/bootstrap.done
 if [[ ! -f "$FILE" ]]; then
     echo "Bootstrap starting"

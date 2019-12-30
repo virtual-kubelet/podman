@@ -20,6 +20,7 @@ func loadConfig(providerConfig, nodeName string) (config PodmanConfig, err error
 	if err != nil {
 		return config, err
 	}
+
 	if _, exist := configMap[nodeName]; exist {
 		config = configMap[nodeName]
 		// set defaults
@@ -38,19 +39,20 @@ func loadConfig(providerConfig, nodeName string) (config PodmanConfig, err error
 		if config.DaemonSetDisabled == "" {
 			config.DaemonSetDisabled = defaultDaemonSetDisabled
 		}
-	}
-
-	if _, err = resource.ParseQuantity(config.CPU); err != nil {
-		return config, fmt.Errorf("Invalid CPU value %v", config.CPU)
-	}
-	if _, err = resource.ParseQuantity(config.Memory); err != nil {
-		return config, fmt.Errorf("Invalid memory value %v", config.Memory)
-	}
-	if _, err = resource.ParseQuantity(config.Pods); err != nil {
-		return config, fmt.Errorf("Invalid pods value %v", config.Pods)
-	}
-	if _, err = strconv.ParseBool(config.DaemonSetDisabled); err != nil {
-		return config, fmt.Errorf("Invalid daemonSetDisabled value %v", config.DaemonSetDisabled)
+		if _, err = resource.ParseQuantity(config.CPU); err != nil {
+			return config, fmt.Errorf("Invalid CPU value %v, %v", config.CPU, err)
+		}
+		if _, err = resource.ParseQuantity(config.Memory); err != nil {
+			return config, fmt.Errorf("Invalid memory value %v", config.Memory)
+		}
+		if _, err = resource.ParseQuantity(config.Pods); err != nil {
+			return config, fmt.Errorf("Invalid pods value %v", config.Pods)
+		}
+		if _, err = strconv.ParseBool(config.DaemonSetDisabled); err != nil {
+			return config, fmt.Errorf("Invalid daemonSetDisabled value %v", config.DaemonSetDisabled)
+		}
+	} else {
+		return config, fmt.Errorf("Node config not found %v", nodeName)
 	}
 
 	return config, nil
