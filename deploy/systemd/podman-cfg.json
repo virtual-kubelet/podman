@@ -1,0 +1,9 @@
+{
+    "podman": {
+      "cpu": "1",
+      "memory": "2Gi",
+      "pods": "10",
+      "socket": "unix:/run/podman/io.podman",
+      "daemonSetDisabled": "true"
+    }
+  }

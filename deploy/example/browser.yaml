@@ -1,0 +1,53 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: browser
+spec:
+  containers:
+  - image: quay.io/mangirdas/chromium:arm32v7
+    command:
+      - --app
+      - http://redhat.com
+    imagePullPolicy: Always
+    name: browser
+    resources:
+      requests:
+        memory: 50Mi
+        cpu: 100m
+    volumeMounts:
+    - mountPath: /tmp
+      name: tmp
+    - mountPath: /root
+      name: home
+    - mountPath: /var/run/dbus
+      name: dbus
+    env:
+    - name: XAUTHORITY
+      value: "/root/.Xauthority"
+    - name: DISPLAY
+      value: ":0.0"
+    securityContext:
+      privileged: true
+  dnsPolicy: ClusterFirst
+  hostNetwork: true
+  nodeSelector:
+    kubernetes.io/role: agent
+    beta.kubernetes.io/os: linux
+    type: virtual-kubelet
+    kubernetes.io/hostname: podman
+  tolerations:
+  - key: virtual-kubelet.io/provider
+    operator: Exists
+  volumes:
+  - hostPath:
+      path: /tmp
+      type: DirectoryOrCreate
+    name: tmp
+  - hostPath:
+      path: /home/rpi
+      type: DirectoryOrCreate
+    name: home
+  - hostPath:
+      path: /var/run/dbus
+      type: DirectoryOrCreate
+    name: dbus

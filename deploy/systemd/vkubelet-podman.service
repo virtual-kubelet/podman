@@ -1,0 +1,8 @@
+[Unit]
+Description=vkubelet-podman
+Requires=io.podman.service
+[Service]
+Environment=KUBECONFIG=/etc/kubernetes/admin.conf
+ExecStart=/usr/local/bin/virtual-kubelet --provider podman --nodename podman --provider-config /etc/vkubelet/podman-cfg.json
+[Install]
+WantedBy=multi-user.target
