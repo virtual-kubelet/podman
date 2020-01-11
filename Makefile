@@ -45,4 +45,7 @@ bin/%:
 	CGO_ENABLED=0 GOARCH=$(GOARCH) go build -ldflags '-extldflags "-static"' -o bin/$(*) $(VERSION_FLAGS) ./cmd/virtual-kubelet
 
 run: clean build
-	./bin/virtual-kubelet --provider podman --nodename podman --provider-config ./deploy/systemd/podman-cfg.json --full-resync-period=10s
+	./bin/virtual-kubelet --provider podman --nodename podman \
+	--provider-config ./deploy/systemd/podman-cfg.json \
+	--full-resync-period=10s \
+	--startup-timeout=3600s

@@ -9,7 +9,7 @@ spec:
     command:
       - /bin/sleep
     args:
-      - 300s
+      - 30s
     imagePullPolicy: Always
     name: busybox
     resources:

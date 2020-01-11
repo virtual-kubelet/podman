@@ -47,7 +47,7 @@ type PodmanConfig struct {
 	DaemonSetDisabled string `json:"daemonSetDisabled,omitempty"`
 }
 
-// NewPodmanProviderPodmanConfig creates a new PodmanV0Provider. podman legacy provider does not implement the new asynchronous podnotifier interface
+// NewPodmanV0ProviderPodmanConfig creates a new PodmanV0Provider. podman legacy provider does not implement the new asynchronous podnotifier interface
 func NewPodmanV0ProviderPodmanConfig(config PodmanConfig, nodeName, operatingSystem string, resourceManager *manager.ResourceManager) (*PodmanV0Provider, error) {
 	client, err := podman.New(context.Background(), nil)
 	if err != nil {
