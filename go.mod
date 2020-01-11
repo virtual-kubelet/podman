@@ -59,7 +59,7 @@ replace k8s.io/kube-controller-manager => k8s.io/kube-controller-manager v0.0.0-
 
 replace k8s.io/apimachinery => k8s.io/apimachinery v0.0.0-20190612205821-1799e75a0719
 
-replace k8s.io/api => k8s.io/api v0.0.0-20190918195907-bd6ac527cfd2
+replace k8s.io/api => k8s.io/api v0.0.0-20190805141119-fdd30b57c827
 
 replace k8s.io/cluster-bootstrap => k8s.io/cluster-bootstrap v0.0.0-20190805144246-c01ee70854a1
 

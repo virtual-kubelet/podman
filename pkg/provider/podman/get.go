@@ -18,7 +18,7 @@ import (
 // GetPod returns a pod by name that is stored in memory.
 // TODO impelment pod status fields in the struct we return for the data
 func (p *PodmanV0Provider) GetPod(ctx context.Context, namespace, name string) (pod *v1.Pod, err error) {
-	log.G(ctx).Infof("receive GetPod %s", namespace, name)
+	log.G(ctx).Infof("receive GetPod %s/%s", namespace, name)
 	podName, err := converter.BuildKeyFromNames(namespace, name)
 	if err != nil {
 		return nil, err

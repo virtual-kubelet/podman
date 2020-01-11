@@ -3,6 +3,9 @@ Description=vkubelet-podman
 Requires=io.podman.service
 [Service]
 Environment=KUBECONFIG=/etc/kubernetes/admin.conf
-ExecStart=/usr/local/bin/virtual-kubelet --provider podman --nodename podman --provider-config /etc/vkubelet/podman-cfg.json
+ExecStart=/usr/local/bin/virtual-kubelet --provider podman \
+                                         --nodename podman \
+                                         --provider-config /etc/vkubelet/podman-cfg.json \
+                                         --startup-timeout=3600s
 [Install]
 WantedBy=multi-user.target
